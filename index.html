@@ -23,13 +23,13 @@
                 <a href="dashboardAdmin.html" class="item-menu">
                     <img src="./img/panel.png" alt="Inicio"> Inicio
                 </a>
-                <a href="#" class="item-menu">
+                <a href="gestionInventario.html" class="item-menu">
                     <img src="./img/inventario.png" alt="Inventario"> Inventario de Equipos
                 </a>
-                <a href="#" class="item-menu">
+                <a href="registrarPrestamo.html" class="item-menu">
                     <img src="./img/prestamo.png" alt="Préstamos"> Gestión de Préstamos
                 </a>
-                <a href="gestionUsuarios.html" class="item-menu">
+                <a href="#" class="item-menu">
                     <img src="./img/añadirusuario.png" alt="Usuarios"> Gestión de Usuarios
                 </a>
                 <a href="disponibilidad.html" class="item-menu activo">
@@ -83,15 +83,15 @@
                 <div class="conteo">
                     <div class="conteo-disponibilidad">
                         <h3 class="arriba">DISPONIBLES</h3>
-                        <p class="abajo">42</p>
+                        <p class="abajo">03</p>
                     </div>
                     <div class="conteo-disponibilidad">
                         <h3 class="arriba">EN USO</h3>
-                        <p class="abajo">18</p>
+                        <p class="abajo">01</p>
                     </div>
                     <div class="conteo-disponibilidad">
                         <h3 class="arriba">MANTENIMIENTO</h3>
-                        <p class="abajo">05</p>
+                        <p class="abajo">02</p>
                     </div>
                 </div>
             </section>
@@ -99,7 +99,12 @@
             <nav class="nav-disponibilidad">
                 <div class="contenedor-filtros">
                     <div class="botones-categorias">
-                        <button class="btn-categoria activo">TODOS</button>
+                        <select class="select-filtro-estado" id="filtroEstado">
+                            <option value="todos">TODOS LOS ESTADOS</option>
+                            <option value="Disponible">DISPONIBLE</option>
+                            <option value="en-uso">EN USO</option>
+                            <option value="mantenimiento">MANTENIMIENTO</option>
+                        </select>
                         <button class="btn-categoria">PORTÁTILES</button>
                         <button class="btn-categoria">TABLETAS</button>
                         <button class="btn-categoria">CÁMARAS</button>
@@ -129,6 +134,10 @@
                             <span class="location">📍 Sede Norte</span>
                             <span class="product-id">ID: #88291</span>
                         </div>
+                        
+                        <div class="mini-alerta-tarjeta-verde">
+                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
+                        </div>
                     </div>
                 </article>
 
@@ -148,6 +157,10 @@
                             <span class="location">📍 Sede Sur</span>
                             <span class="product-id">ID: #11022</span>
                         </div>
+                        
+                        <div class="mini-alerta-tarjeta-verde">
+                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
+                        </div>
                     </div>
                 </article>
 
@@ -161,11 +174,15 @@
                             <h3>Portatil HP Gaming Victus 15</h3>
                             <span class="model-code">AMD Ryzen 5</span>
                         </div>
-                        <p class="description">AMD Ryzen ¡5, 16GB RAM, 1T SSD, WINDOWS 11. Ideal para ingenieria, Arquitectura y Producción Audiovisual.</p>
+                        <p class="description">AMD Ryzen ¡5, 16GB RAM, 1T SSD, WINDOWS 11. Ideal para ingenieria, Arquitectura y Production Audiovisual.</p>
                         <hr class="divisor">
                         <div class="card-footer">
                             <span class="location">📍 Sede Norte</span>
                             <span class="product-id">ID: #10451</span>
+                        </div>
+                        
+                        <div class="mini-alerta-tarjeta">
+                            <strong>Operación Bloqueada:</strong> El equipo con serial [AMD Ryzen 5] ya cuenta con un préstamo activo.
                         </div>
                     </div>
                 </article>
@@ -186,6 +203,10 @@
                             <span class="location">📍 Sede Sur</span>
                             <span class="product-id">ID: #44910</span>
                         </div>
+                        
+                        <div class="mini-alerta-tarjeta-verde">
+                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
+                        </div>
                     </div>
                 </article>
 
@@ -204,6 +225,10 @@
                         <div class="card-footer">
                             <span class="location">⚠️ Revisión Técnica</span>
                             <span class="product-id">ID: #59281</span>
+                        </div>
+                        
+                        <div class="mini-alerta-tarjeta">
+                            <strong>Operación Bloqueada:</strong> El equipo con serial [Core-5] no está disponible por soporte técnico.
                         </div>
                     </div>
                 </article>
@@ -224,6 +249,10 @@
                             <span class="location">⚠️ Revisión Técnica</span>
                             <span class="product-id">ID: #59281</span>
                         </div>
+                        
+                        <div class="mini-alerta-tarjeta">
+                            <strong>Operación Bloqueada:</strong> El equipo con serial [Core-5] no está disponible por soporte técnico.
+                        </div>
                     </div>
                 </article>
             </section>
@@ -233,27 +262,41 @@
             <br>
             <br>
             <br>
-            <footer class="footer">
-                <div class="footer-content">
-                    <div class="content-son">
-                        <div class="footer-section">
-                            <h3>Soporte Tecnológico</h3>
-                            <p>ext. 4450 / soporte@cesde.edu.co</p>
-                        </div>
-
-                        <div class="footer-section divider">
-                            <h3>Horario Curaduría</h3>
-                            <p>Lunes - Sábado / 07:00 - 21:00</p>
-                        </div>
-
-                        <div class="footer-actions">
-                            <button class="btn-version">V2.4.0 STABLE</button>
-                            <button class="btn-year">© 2024 CESDE</button>
-                        </div>
-                    </div>
+           <section class="footer">
+                <p>
+                    ©️ 2026. Sistema de Gestión de Préstamos de Equipos de Compúto.
+                </p>
+                <div class="links-footer">
+                    <a href="#">
+                        TÉRMINOS DE USO
+                    </a>
+                    <a href="#">
+                        PRIVACIDAD DE DATOS
+                    </a>
                 </div>
-            </footer>
+            </section>
         </main>
     </div>
+    <!-- Opcional funcion js -->
+    <script>
+        document.getElementById('filtroEstado').addEventListener('change', function() {
+            // Convertimos la opción seleccionada a minúsculas
+            const estadoSeleccionado = this.value.toLowerCase();
+            const tarjetas = document.querySelectorAll('.product-card');
+
+            tarjetas.forEach(tarjeta => {
+                // Convertimos el estado de la tarjeta a minúsculas también para una comparación exacta
+                const estadoTarjeta = tarjeta.getAttribute('data-status').toLowerCase();
+
+                if (estadoSeleccionado === 'todos' || estadoSeleccionado === estadoTarjeta) {
+                    tarjeta.style.display = 'block'; // Muestra la tarjeta manteniendo tu diseño
+                } else {
+                    tarjeta.style.display = 'none';  // Oculta la tarjeta limpiamente
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>
