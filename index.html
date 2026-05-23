@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disponibilidad de Equipos - Admin</title>
+    <title>Inicio - Sistema de Gestión</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -20,19 +20,19 @@
             </div>
 
             <nav class="menu-lateral">
-                <a href="dashboardAdmin.html" class="item-menu">
+                <a href="index.html" class="item-menu activo">
                     <img src="./img/panel.png" alt="Inicio"> Inicio
                 </a>
-                <a href="gestionInventario.html" class="item-menu">
+                <a href="GestionInventario.html" class="item-menu">
                     <img src="./img/inventario.png" alt="Inventario"> Inventario de Equipos
                 </a>
-                <a href="registrarPrestamo.html" class="item-menu">
+                <a href="#" class="item-menu">
                     <img src="./img/prestamo.png" alt="Préstamos"> Gestión de Préstamos
                 </a>
-                <a href="#" class="item-menu">
+                <a href="gestionUsuarios.html" class="item-menu">
                     <img src="./img/añadirusuario.png" alt="Usuarios"> Gestión de Usuarios
                 </a>
-                <a href="disponibilidad.html" class="item-menu activo">
+                <a href="disponibilidadequipos.html" class="item-menu">
                     <img src="./img/disponibilidad.png" alt="Disponibilidad"> Disponibilidad
                 </a>
                 <a href="#" class="item-menu">
@@ -58,7 +58,7 @@
             <header class="barra-superior">
                 <div class="barra-busqueda">
                     <img src="./img/busqueda.png" alt="Buscar">
-                    <input type="text" placeholder="Buscar equipos por serial o nombre...">
+                    <input type="text" placeholder="Buscar en el sistema...">
                 </div>
                 <div class="acciones-superiores">
                     <button class="boton-icono"><img src="./img/notificacion.png" alt="Notificaciones"></button>
@@ -74,229 +74,22 @@
             </header>
 
             <section class="encabezado-pagina">
-                <h2>Disponibilidad de Equipos</h2>
-                <p>Verifique el estado actual de los activos antes de asignar un nuevo préstamo.</p>
-                <p>Monitoreo en tiempo real del inventario tecnológico. Filtre por categoria o sede para gestionar los préstamos académicos de manera eficiente.</p>
+                <h2>Bienvenido al Sistema de Gestión</h2>
+                <p>Seleccione una opción del menú lateral para comenzar a administrar los activos tecnológicos.</p>
             </section>
 
-            <section class="contenedor-tarjetas-stats">
-                <div class="conteo">
-                    <div class="conteo-disponibilidad">
-                        <h3 class="arriba">DISPONIBLES</h3>
-                        <p class="abajo">03</p>
-                    </div>
-                    <div class="conteo-disponibilidad">
-                        <h3 class="arriba">EN USO</h3>
-                        <p class="abajo">01</p>
-                    </div>
-                    <div class="conteo-disponibilidad">
-                        <h3 class="arriba">MANTENIMIENTO</h3>
-                        <p class="abajo">02</p>
-                    </div>
-                </div>
-            </section>
+            <div class="espacio-vacio-dashboard" style="flex: 1; display: flex; align-items: center; justify-content: center; border: 2px dashed #E2E8F0; border-radius: 16px; min-height: 300px; color: #94A3B8;">
+                <p>El contenido del panel principal se desarrollará en la siguiente fase.</p>
+            </div>
 
-            <nav class="nav-disponibilidad">
-                <div class="contenedor-filtros">
-                    <div class="botones-categorias">
-                        <select class="select-filtro-estado" id="filtroEstado">
-                            <option value="todos">TODOS LOS ESTADOS</option>
-                            <option value="Disponible">DISPONIBLE</option>
-                            <option value="en-uso">EN USO</option>
-                            <option value="mantenimiento">MANTENIMIENTO</option>
-                        </select>
-                        <button class="btn-categoria">PORTÁTILES</button>
-                        <button class="btn-categoria">TABLETAS</button>
-                        <button class="btn-categoria">CÁMARAS</button>
-                    </div>
-                    <div class="filtros-derecha">
-                        <button class="btn-filtros-avanzados">
-                            <span>&#9776;</span> Filtros Avanzados
-                        </button>
-                    </div>
-                </div>
-            </nav>
-
-            <section class="grid-productos">
-                <article class="product-card" data-status="Disponible">
-                    <div class="image-container">
-                        <span class="badge disponible">DISPONIBLE</span>
-                        <img src="img/macbook.jpg" alt="MacBook Pro 14">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>MacBook Pro 14"</h3>
-                            <span class="model-code">M1-01</span>
-                        </div>
-                        <p class="description">Chip M1 Pro, 16GB RAM, 512GB SSD. Ideal para edición de video y diseño.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">📍 Sede Norte</span>
-                            <span class="product-id">ID: #88291</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta-verde">
-                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-status="Disponible">
-                    <div class="image-container">
-                        <span class="badge disponible">DISPONIBLE</span>
-                        <img src="img/Asus_portatil.png" alt="Asus VivoBook">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>Portatil Asus VivoBook 15.6</h3>
-                            <span class="model-code">Core-5</span>
-                        </div>
-                        <p class="description">Intel Core ¡5, RAM 12GB, 512GB SSD, WINDOWS 11. Ideal para estudiantes de programación y desarrollo web.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">📍 Sede Sur</span>
-                            <span class="product-id">ID: #11022</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta-verde">
-                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-status="en-uso">
-                    <div class="image-container">
-                        <span class="badge en-uso">EN USO</span>
-                        <img src="img/hpgaming.png" alt="Portatil HP Gaming Victus 15">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>Portatil HP Gaming Victus 15</h3>
-                            <span class="model-code">AMD Ryzen 5</span>
-                        </div>
-                        <p class="description">AMD Ryzen ¡5, 16GB RAM, 1T SSD, WINDOWS 11. Ideal para ingenieria, Arquitectura y Production Audiovisual.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">📍 Sede Norte</span>
-                            <span class="product-id">ID: #10451</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta">
-                            <strong>Operación Bloqueada:</strong> El equipo con serial [AMD Ryzen 5] ya cuenta con un préstamo activo.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-status="disponible">
-                    <div class="image-container">
-                        <span class="badge disponible">DISPONIBLE</span>
-                        <img src="img/Portatilacer.png" alt="Portatil Acer Aspire lite 15">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>Portatil Acer Aspire lite 15</h3>
-                            <span class="model-code">AMD Ryzen 7</span>
-                        </div>
-                        <p class="description">AMD Ryzen ¡7, 16GB RAM, 1T SSD WINDOWS 11. Ideal para desarrollo de aplicaciones y gestión de proyectos multimedia.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">📍 Sede Sur</span>
-                            <span class="product-id">ID: #44910</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta-verde">
-                            <strong>Operación Permitida:</strong> El equipo se encuentra disponible para préstamo académico.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-status="mantenimiento">
-                    <div class="image-container">
-                        <span class="badge mantenimiento">MANTENIMIENTO</span>
-                        <img src="img/portatildell.png" alt="Monitor LG">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>Portatil DELL 15.6</h3>
-                            <span class="model-code">Core-5</span>
-                        </div>
-                        <p class="description">Intel Core ¡5, 12GB RAM, 512GB SSD, WINDOWS 11. Ideal para desarrollo de software avanzado, virtualización y análisis de grandes volúmenes de datos.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">⚠️ Revisión Técnica</span>
-                            <span class="product-id">ID: #59281</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta">
-                            <strong>Operación Bloqueada:</strong> El equipo con serial [Core-5] no está disponible por soporte técnico.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card" data-status="mantenimiento">
-                    <div class="image-container">
-                        <span class="badge mantenimiento">MANTENIMIENTO</span>
-                        <img src="img/portatillenovo.png" alt="Monitor LG">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-header">
-                            <h3>Portatil Lenovo Ideapad Slim 3, 15</h3>
-                            <span class="model-code">Core-5</span>
-                        </div>
-                        <p class="description">Intel Core 5, 24GB RAM, 512GB SSD WINDOWS 11. Ideal para desarrollo de software complejo y análisis de grandes volúmenes de datos.</p>
-                        <hr class="divisor">
-                        <div class="card-footer">
-                            <span class="location">⚠️ Revisión Técnica</span>
-                            <span class="product-id">ID: #59281</span>
-                        </div>
-                        
-                        <div class="mini-alerta-tarjeta">
-                            <strong>Operación Bloqueada:</strong> El equipo con serial [Core-5] no está disponible por soporte técnico.
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-           <section class="footer">
-                <p>
-                    ©️ 2026. Sistema de Gestión de Préstamos de Equipos de Compúto.
-                </p>
+            <footer class="footer">
+                <p>©️ 2026. Sistema de Gestión de Préstamos de Equipos de Cómputo.</p>
                 <div class="links-footer">
-                    <a href="#">
-                        TÉRMINOS DE USO
-                    </a>
-                    <a href="#">
-                        PRIVACIDAD DE DATOS
-                    </a>
+                    <a href="#">TÉRMINOS DE USO</a>
+                    <a href="#">PRIVACIDAD DE DATOS</a>
                 </div>
-            </section>
+            </footer>
         </main>
     </div>
-    <!-- Opcional funcion js -->
-    <script>
-        document.getElementById('filtroEstado').addEventListener('change', function() {
-            // Convertimos la opción seleccionada a minúsculas
-            const estadoSeleccionado = this.value.toLowerCase();
-            const tarjetas = document.querySelectorAll('.product-card');
-
-            tarjetas.forEach(tarjeta => {
-                // Convertimos el estado de la tarjeta a minúsculas también para una comparación exacta
-                const estadoTarjeta = tarjeta.getAttribute('data-status').toLowerCase();
-
-                if (estadoSeleccionado === 'todos' || estadoSeleccionado === estadoTarjeta) {
-                    tarjeta.style.display = 'block'; // Muestra la tarjeta manteniendo tu diseño
-                } else {
-                    tarjeta.style.display = 'none';  // Oculta la tarjeta limpiamente
-                }
-            });
-        });
-    </script>
-</body>
-</html>
 </body>
 </html>
