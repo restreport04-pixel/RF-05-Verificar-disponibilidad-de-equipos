@@ -4,64 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RF-04 / HU 14.1 - Registro de Préstamos</title>
-  <link rel="stylesheet" href="css/controlaccesorios.css">
+  <link rel="stylesheet" href="./css/controlaccesorios.css">
 </head>
 <body>
   <div class="contenedor-general">
     <aside class="barra-lateral">
       <div class="logo">
-        <img src="../img/logo3.png" alt="CESDE">
+        <img src="./img/logo3.png" alt="CESDE">
         <div class="logo-texto">
           <h2>Sistema de Préstamos de Equipos de Cómputo</h2>
         </div>
       </div>
       <nav class="menu-lateral">
-        <a href="dashboardAdmin.html" class="item-menu">
-          <img src="../img/panel.png" alt="Inicio">Inicio
+        <a href="index.html" class="item-menu">
+          <img src="./img/panel.png" alt="Inicio">Inicio
+        </a>
+        <a href="gestionInventario.html" class="item-menu">
+          <img src="./img/inventario.png" alt="Inventario">Inventario de Equipos
         </a>
         <a href="#" class="item-menu">
-          <img src="../img/inventario.png" alt="Inventario">Inventario de Equipos
-        </a>
-        <a href="prestamos.html" class="item-menu">
-          <img src="../img/prestamo.png" alt="Préstamos">Gestión de Préstamos
+          <img src="./img/prestamo.png" alt="Préstamos">Gestión de Préstamos
         </a>
         <a href="gestionUsuarios.html" class="item-menu">
-          <img src="../img/añadirusuario.png" alt="Usuarios">Gestión de Usuarios
+          <img src="./img/añadirusuario.png" alt="Usuarios">Gestión de Usuarios
+        </a>
+        <a href="disponibilidadequipos.html" class="item-menu">
+          <img src="./img/disponibilidad.png" alt="Disponibilidad">Disponibilidad
         </a>
         <a href="#" class="item-menu">
-          <img src="../img/disponibilidad.png" alt="Disponibilidad">Disponibilidad
-        </a>
-        <a href="#" class="item-menu">
-          <img src="../img/historial.png" alt="Historial">Historial General
+          <img src="./img/historial.png" alt="Historial">Historial General
         </a>
       </nav>
       <div class="contenedor-boton">
-        <a href="registrarPrestamo.html" class="item-agregar">
+        <a href="controlaccesorios.html" class="item-agregar">
           <button class="boton-primario">
-            <img src="../img/agregar.png" alt="Agregar">Nuevo Préstamo
+            <img src="./img/agregar.png" alt="Agregar">Nuevo Préstamo
           </button>
         </a>
       </div>
       <div class="pie-barra">
-        <a href="#"><img src="../img/ayuda.png" alt="Ayuda">Ayuda</a>
-        <a href="login.html" class="cerrar-sesion"><img src="../img/salir.png" alt="Salir">Cerrar Sesión</a>
+        <a href="#"><img src="./img/ayuda.png" alt="Ayuda">Ayuda</a>
+        <a href="login.html" class="cerrar-sesion"><img src="./img/salir.png" alt="Salir">Cerrar Sesión</a>
       </div>
     </aside>
     <div class="contenido-principal">
       <header class="barra-superior">
         <div class="barra-busqueda">
-          <img src="../img/busqueda.png" alt="Buscar">
+          <img src="./img/busqueda.png" alt="Buscar">
           <input type="text" placeholder="Buscar préstamos o equipos...">
         </div>
         <div class="acciones-superiores">
-          <button class="boton-icono"><img src="../img/notificacion.png" alt="Notificaciones"></button>
-          <button class="boton-icono"><img src="../img/configuraciones.png" alt="Configuración"></button>
+          <button class="boton-icono"><img src="./img/notificacion.png" alt="Notificaciones"></button>
+          <button class="boton-icono"><img src="./img/configuraciones.png" alt="Configuración"></button>
           <div class="perfil-usuario">
             <div>
               <h4>Don Jairo</h4>
               <span>ADMINISTRADOR</span>
             </div>
-            <img src="../img/admin.png" alt="Administrador">
+            <img src="./img/admin.png" alt="Administrador">
           </div>
         </div>
       </header>
@@ -73,26 +73,54 @@
         <div class="cuadro">
           <h2>Detalles del Registro</h2>
           <form action="#" method="POST" onsubmit="return false;">
+            
             <div class="fechas">
-              <div class="campo">
-                <label for="documento-estudiante">Documento del Estudiante</label>
-                <input type="text" id="documento-estudiante" placeholder="Ej. 1023456" required>
+              <div class="campo contenedor-combobox">
+                <label for="buscar-usuario">Buscar o Seleccionar Usuario</label>
+                <input type="text" id="buscar-usuario" placeholder="Escriba nombre o identificación..." autocomplete="off" required>
+                <div class="desplegable-scroll" id="desplegable-usuarios"></div>
               </div>
               <div class="campo">
-                <label for="nombre-estudiante">Nombre Completo</label>
-                <input type="text" id="nombre-estudiante" placeholder="Nombre del aprendiz" required>
+                <label for="tipo-usuario">Rol del Usuario Asignado</label>
+                <select id="tipo-usuario" required disabled style="background-color: #F1F5F9; cursor: not-allowed;">
+                  <option value="" disabled selected>Esperando selección...</option>
+                  <option value="estudiante">Estudiante / Aprendiz</option>
+                  <option value="profesor">Profesor / Instructor</option>
+                  <option value="admin">Administrador</option>
+                </select>
               </div>
             </div>
+
             <div class="fechas">
-              <div class="campo">
-                <label for="serial-equipo">Serial del Equipo</label>
-                <input type="text" id="serial-equipo" placeholder="Ej. MAC2026X" required>
+              <div class="campo contenedor-combobox">
+                <label for="buscar-equipo">Buscar o Seleccionar Equipo / PC</label>
+                <input type="text" id="buscar-equipo" placeholder="Escriba serial o ID (Ej. M1-01)..." autocomplete="off" required>
+                <div class="desplegable-scroll" id="desplegable-equipos"></div>
               </div>
               <div class="campo">
                 <label for="ambiente-clase">Ambiente / Aula</label>
-                <input type="text" id="ambiente-clase" placeholder="Ej. Aula 402">
+                <input type="text" id="ambiente-clase" placeholder="Ej. Aula 402" required>
               </div>
             </div>
+
+            <div class="fechas">
+              <div class="campo">
+                <label for="fecha-inicio">Fecha Inicio</label>
+                <input type="date" id="fecha-inicio" required>
+              </div>
+              <div class="campo">
+                <label for="fecha-fin">Fecha Fin</label>
+                <input type="date" id="fecha-fin" required>
+              </div>
+            </div>
+            <div class="fechas">
+              <div class="campo">
+                <label for="hora-prestamo">Hora de Préstamo</label>
+                <input type="time" id="hora-prestamo" required>
+              </div>
+              <div class="campo" style="visibility: hidden;"></div>
+            </div>
+
             <div class="control-accesorios">
               <h3>Control de Accesorios Entregados (HU 14.1)</h3>
               <p class="instruccion-checklist">Verifique los elementos que se entregan en buen estado junto al equipo:</p>
@@ -111,6 +139,7 @@
                 </label>
               </div>
             </div>
+
             <button type="submit" class="boton-enviar">Finalizar y Registrar Préstamo</button>
           </form>
         </div>
@@ -124,5 +153,131 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuariosBD = [
+        { documento: "1023456", nombre: "Juan Pérez Aristizábal", rol: "estudiante" },
+        { documento: "9876543", nombre: "María Camila Restrepo", rol: "profesor" },
+        { documento: "1122334", nombre: "Carlos Mario Betancur", rol: "admin" },
+        { documento: "1055432", nombre: "Don Jairo", rol: "admin" }
+      ];
+
+      const equiposBD = [
+        { serial: "M1-01", id: "#88291", nombre: 'MacBook Pro 14"', estado: "DISPONIBLE" },
+        { serial: "Core-5", id: "#11022", nombre: "Portátil Asus VivoBook 15.6", estado: "DISPONIBLE" },
+        { serial: "AMD Ryzen 5", id: "#10451", nombre: "Portátil HP Gaming Victus 15", estado: "EN USO" },
+        { serial: "AMD Ryzen 7", id: "#44910", nombre: "Portátil Acer Aspire lite 15", estado: "DISPONIBLE" },
+        { serial: "Core-5", id: "#59281", nombre: "Portátil DELL 15.6", estado: "MANTENIMIENTO" },
+        { serial: "Core-5", id: "#59282", nombre: "Portátil Lenovo Ideapad Slim 3", estado: "MANTENIMIENTO" }
+      ];
+
+      const inputUsuario = document.getElementById("buscar-usuario");
+      const despUsuarios = document.getElementById("desplegable-usuarios");
+      const selectRol = document.getElementById("tipo-usuario");
+
+      const inputEquipo = document.getElementById("buscar-equipo");
+      const despEquipos = document.getElementById("desplegable-equipos");
+      const formPrestamo = document.querySelector("form");
+
+      function filtrarUsuarios(filtro = "") {
+        despUsuarios.innerHTML = "";
+        const filtrados = usuariosBD.filter(u => 
+          u.nombre.toLowerCase().includes(filtro.toLowerCase()) || u.documento.includes(filtro)
+        );
+
+        if (filtrados.length === 0) {
+          despUsuarios.innerHTML = '<div class="item-vacio">No hay resultados</div>';
+          return;
+        }
+
+        filtrados.forEach(u => {
+          const item = document.createElement("div");
+          item.className = "item-desplegable";
+          item.innerHTML = `<strong>${u.nombre}</strong> <span style="color:#64748B; font-size:12px;">(CC: ${u.documento})</span>`;
+          
+          item.addEventListener("click", () => {
+            inputUsuario.value = u.nombre;
+            selectRol.disabled = false;
+            selectRol.value = u.rol;
+            selectRol.disabled = true;
+            despUsuarios.classList.remove("active");
+          });
+          despUsuarios.appendChild(item);
+        });
+      }
+
+      inputUsuario.addEventListener("focus", () => {
+        filtrarUsuarios(inputUsuario.value);
+        despUsuarios.classList.add("active");
+      });
+      inputUsuario.addEventListener("input", (e) => filtrarUsuarios(e.target.value));
+
+      function filtrarEquipos(filtro = "") {
+        despEquipos.innerHTML = "";
+        const filtrados = equiposBD.filter(pc => 
+          pc.nombre.toLowerCase().includes(filtro.toLowerCase()) || 
+          pc.id.includes(filtro) || 
+          pc.serial.toLowerCase().includes(filtro.toLowerCase())
+        );
+
+        if (filtrados.length === 0) {
+          despEquipos.innerHTML = '<div class="item-vacio">No hay resultados</div>';
+          return;
+        }
+
+        filtrados.forEach(pc => {
+          const item = document.createElement("div");
+          const esDisponible = pc.estado === "DISPONIBLE";
+          item.className = `item-desplegable ${!esDisponible ? 'item-bloqueado' : ''}`;
+          let badgeColor = esDisponible ? "#2e7d32" : "#d32f2f";
+          
+          item.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+              <span><strong>${pc.nombre}</strong> <small style="color:#64748B;">${pc.id}</small></span>
+              <span style="font-size:10px; font-weight:700; color:${badgeColor}; border:1px solid ${badgeColor}; padding:2px 6px; border-radius:6px;">${pc.estado}</span>
+            </div>
+          `;
+
+          if (esDisponible) {
+            item.addEventListener("click", () => {
+              inputEquipo.value = `${pc.nombre} (${pc.id})`;
+              inputEquipo.dataset.selectedId = pc.id;
+              despEquipos.classList.remove("active");
+            });
+          }
+          despEquipos.appendChild(item);
+        });
+      }
+
+      inputEquipo.addEventListener("focus", () => {
+        filtrarEquipos(inputEquipo.value);
+        despEquipos.classList.add("active");
+      });
+      
+      inputEquipo.addEventListener("input", (e) => {
+        delete inputEquipo.dataset.selectedId;
+        filtrarEquipos(e.target.value);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".contenedor-combobox")) {
+          despUsuarios.classList.remove("active");
+          despEquipos.classList.remove("active");
+        }
+      });
+
+      formPrestamo.addEventListener("submit", (e) => {
+        if (!inputEquipo.dataset.selectedId) {
+          e.preventDefault();
+          alert("Operación Denegada: Debe hacer clic y seleccionar un equipo válido y disponible desde la lista desplegable.");
+        } else {
+          alert("¡Préstamo registrado exitosamente!");
+          formPrestamo.reset();
+          delete inputEquipo.dataset.selectedId;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
